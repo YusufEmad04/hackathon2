@@ -4,6 +4,9 @@ import streamlit as st
 def button_callback(text):
     if text:
         try:
+
+            text = "The following question is about the meeting minutes related to a certain company. Make sure to use reasoning in your answer. The CEO of the company will be asking you this question:\n" + text
+
             model = get_model()
             st.spinner("Thinking...")
             results = model.query(text, chain_type="refine")

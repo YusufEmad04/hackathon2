@@ -31,7 +31,8 @@ with st.sidebar:
 
 if selected == "Ask":
     # st.header("Ask Qima Meetings")
-    st.markdown("<h1 style='text-align: center;'> Ask QIMA Meetings </h1>", unsafe_allow_html=True)
+    # st.markdown('<h1><span style="color: yellow;">QIMA</span> meetings</h1>', unsafe_allow_html=True)
+    st.markdown("<h1 style='text-align: center;'>Ask <span style='color: goldenrod; font-weight: bold;'>QIMA</span> meetings</h1>", unsafe_allow_html=True)
     # st.write("This page is currently under construction...")
     input = st.text_area('Ask anything to the Qima existing meeting minute tables', key='ask_text_area', value=st.session_state.text_area_text)
     st.session_state.text_area_text = input
@@ -40,6 +41,9 @@ if selected == "Ask":
         st.write("Output:", st.session_state.output)
 
 elif selected == "Add":
+    st.markdown(
+        "<h1 style='text-align: center;'><span style='color: goldenrod; font-weight: bold;'>QIMA</span> meetings</h1>",
+        unsafe_allow_html=True)
     st.header(f"Add Meeting Minutes")
     # st.write("This page is currently under construction...")
 
@@ -88,6 +92,9 @@ elif selected == "Add":
                 st.warning("Please upload an MP3 or WAV file.")
 
 elif selected == "Transcribe":
+    st.markdown(
+        "<h1 style='text-align: center;'><span style='color: goldenrod; font-weight: bold;'>QIMA</span> meetings</h1>",
+        unsafe_allow_html=True)
     # st.header("Transcribe Meeting Minutes")
     # # st.write("This page is currently under construction...")
     # st.write("Record your voice:")
@@ -110,6 +117,9 @@ elif selected == "Transcribe":
     #         st.write("Input stored:", st.session_state['recorded_text'])
 
 elif selected == "Your meetings":
+    st.markdown(
+        "<h1 style='text-align: center;'><span style='color: goldenrod; font-weight: bold;'>QIMA</span> meetings</h1>",
+        unsafe_allow_html=True)
     st.header("Your Meetings")
     # st.write("This page is currently under construction...")
     st.write("Your meetings:")

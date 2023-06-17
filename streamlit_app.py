@@ -5,6 +5,20 @@ from streamlit_option_menu import option_menu
 import os
 from streamlit_utils import *
 
+# def record_and_save_audio():
+#     r = sr.Recognizer()
+#     with sr.Microphone() as source:
+#         st.write("Speak now...")
+#         audio = r.listen(source)
+#
+#     try:
+#         text = r.recognize_google(audio)
+#         st.session_state['recorded_text'] += text
+#     except sr.UnknownValueError:
+#         st.write("Unable to recognize speech.")
+#     except sr.RequestError as e:
+#         st.write(f"Error: {e}")
+
 if "output" not in st.session_state:
     st.session_state.output = ""
 
@@ -74,14 +88,26 @@ elif selected == "Add":
                 st.warning("Please upload an MP3 or WAV file.")
 
 elif selected == "Transcribe":
+    # st.header("Transcribe Meeting Minutes")
+    # # st.write("This page is currently under construction...")
+    # st.write("Record your voice:")
+    # # if st.button("Start Recording"):
+    #     # text2 = record_and_convert_audio()
+    #     # st.write("Transcription:")
+    #     # if not text2:
+    #     #     st.write(text2)
     st.header("Transcribe Meeting Minutes")
-    # st.write("This page is currently under construction...")
     st.write("Record your voice:")
-    # if st.button("Start Recording"):
-        # text2 = record_and_convert_audio()
-        # st.write("Transcription:")
-        # if not text2:
-        #     st.write(text2)
+    recording_button = st.button("Start/Stop Recording")
+    # if recording_button:
+    #     if not st.session_state.get('recording', False):
+    #         st.session_state['recording'] = True
+    #         st.write("Recording started.")
+    #         st.session_state['recorded_text'] = ""
+    #         # record_and_save_audio()
+    #     else:
+    #         st.session_state['recording'] = False
+    #         st.write("Input stored:", st.session_state['recorded_text'])
 
 elif selected == "Your meetings":
     st.header("Your Meetings")

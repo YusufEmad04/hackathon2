@@ -19,6 +19,11 @@ if selected == "Ask":
     st.button('Ask', key='qima_ask_button', on_click=button_callback, args=(input,))
     st.write("Output:", st.session_state.output)
 
+    # load dummy data csv with pandas
+    df = pd.read_csv("Dummy minutes.csv")
+    # display the data
+    st.dataframe(df)
+
 elif selected == "Add":
     st.header(f"Add Meeting Minutes")
     # st.write("This page is currently under construction...")

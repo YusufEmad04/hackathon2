@@ -63,7 +63,7 @@ elif selected == "Add":
                     f.write(uploaded_file.getbuffer())
 
             except Exception as e:
-                st.error("Error: Unable to load the file. Please make sure it is a valid Excel file.")
+                st.error("Error: Unable to load the file. Please make sure it is a valid Excel file. + " + str(e))
 
         else:
             st.info("Please upload an Excel file.")

@@ -64,11 +64,13 @@ elif selected == "Add":
 
     # Content for meeting_voice
     with meeting_voice:
-        st.write("Record your voice:")
-        if st.button("Start Recording"):
-            # text = record_and_convert_audio()
-            st.write("Transcription:")
-            # st.write(text)
+        st.write("Upload an MP3 or WAV file:")
+        uploaded_voice_file = st.file_uploader("Upload Voice File", type=["mp3", "wav"])
+        if st.button("Add", key="voice_add_button"):
+            if uploaded_voice_file is not None:
+                st.write("Input stored:", uploaded_voice_file)
+            else:
+                st.warning("Please upload an MP3 or WAV file.")
 
 elif selected == "Transcribe":
     st.header("Transcribe Meeting Minutes")

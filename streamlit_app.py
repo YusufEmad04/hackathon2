@@ -9,7 +9,7 @@ if "output" not in st.session_state:
     st.session_state.output = ""
 
 with st.sidebar:
-    selected = option_menu("Qima Meeting", ["Ask", "Add", "Transcribe"], default_index=1)
+    selected = option_menu("Qima Meeting", ["Ask", "Add", "Transcribe"], default_index=0)
     # selected
 
 if selected == "Ask":

@@ -8,6 +8,9 @@ def button_callback(text):
             st.spinner("Thinking...")
             results = model.query(text, chain_type="refine")
             st.success("Done!")
-            st.session_state["output"] = results["answer"]
+            st.session_state["output"] = results
         except Exception as e:
             st.session_state["output"] = f"Something went wrong. Please try again. \n {e}"
+
+    else:
+        st.session_state["output"] = "Please enter a question."

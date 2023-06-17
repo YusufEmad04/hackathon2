@@ -15,25 +15,28 @@ print(PINECONE_ENVIRONMENT)
 
 pinecone.init(api_key=PINECONE_API_KEY, environment=PINECONE_ENVIRONMENT)
 
-# index = VectorstoreIndexCreator(vectorstore_cls=Pinecone).from_loaders([CSVLoader("Dummy minutes.csv", encoding="utf-8")])
-
-
-'''sub_docs = self.text_splitter.split_documents(documents)
-        vectorstore = self.vectorstore_cls.from_documents(
-            sub_docs, self.embedding, **self.vectorstore_kwargs
-        )'''
-
+# # index = VectorstoreIndexCreator(vectorstore_cls=Pinecone).from_loaders([CSVLoader("Dummy minutes.csv", encoding="utf-8")])
+#
+#
+# '''sub_docs = self.text_splitter.split_documents(documents)
+#         vectorstore = self.vectorstore_cls.from_documents(
+#             sub_docs, self.embedding, **self.vectorstore_kwargs
+#         )'''
+#
 docs = CSVLoader("Dummy minutes.csv", encoding="utf-8").load()
 sub_docs = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=0).split_documents(docs)
 vectorstore = Pinecone.from_documents(sub_docs, OpenAIEmbeddings(), index_name="qima")
 
-index2 = VectorStoreIndexWrapper(vectorstore=vectorstore)
+# vectorstore = Pinecone.from_existing_index(index_name="qima", embedding=OpenAIEmbeddings())
+#
+# index2 = VectorStoreIndexWrapper(vectorstore=vectorstore)
 
 # result = index.query_with_sources("", chain_type="refine")
 
 
 
-while True:
-    query = input("Enter your query: ")
-    result = index2.query_with_sources(query, chain_type="refine")
-    print(result["answer"])
+# while True:
+#     query = input("Enter your query: ")
+#     result = index2.query_with_sources(query, chain_type="refine")
+#     print(result["answer"])
+#     print(result)

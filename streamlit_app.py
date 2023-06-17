@@ -32,8 +32,7 @@ if selected == "Ask":
     st.button('Ask', key='qima_ask_button')
 
 elif selected == "Add":
-    files = [f for f in os.listdir('.') if os.path.isfile(f)]
-    st.header(f"Add Meeting Minutes {str(files)}")
+    st.header(f"Add Meeting Minutes")
     # st.write("This page is currently under construction...")
 
     # Create the tabs

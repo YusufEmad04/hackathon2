@@ -9,7 +9,7 @@ if "output" not in st.session_state:
     st.session_state.output = ""
 
 with st.sidebar:
-    selected = option_menu("Qima Meeting", ["Ask", "Add", "Transcribe"], default_index=0)
+    selected = option_menu("Qima Meeting", ["Ask", "Add", "Transcribe", "Your meetings"], default_index=0)
     # selected
 
 if selected == "Ask":
@@ -17,12 +17,8 @@ if selected == "Ask":
     # st.write("This page is currently under construction...")
     input = st.text_area('Ask anything to the Qima existing meeting minute tables', key='ask_text_area')
     st.button('Ask', key='qima_ask_button', on_click=button_callback, args=(input,))
-    st.write("Output:", st.session_state.output)
-
-    # load dummy data csv with pandas
-    df = pd.read_csv("Dummy minutes.csv")
-    # display the data
-    st.dataframe(df)
+    if st.session_state.output:
+        st.write("Output:", st.session_state.output)
 
 elif selected == "Add":
     st.header(f"Add Meeting Minutes")
@@ -81,5 +77,14 @@ elif selected == "Transcribe":
         # st.write("Transcription:")
         # if not text2:
         #     st.write(text2)
+
+elif selected == "Your meetings":
+    st.header("Your Meetings")
+    # st.write("This page is currently under construction...")
+    st.write("Your meetings:")
+    # load dummy data csv with pandas
+    df = pd.read_csv("Dummy minutes.csv")
+    # display the data
+    st.dataframe(df)
 
 

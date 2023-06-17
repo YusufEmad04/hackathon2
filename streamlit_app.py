@@ -16,7 +16,8 @@ with st.sidebar:
     # selected
 
 if selected == "Ask":
-    st.header("Ask Qima Meetings")
+    # st.header("Ask Qima Meetings")
+    st.markdown("<h1 style='text-align: center;'> Ask QIMA Meetings </h1>", unsafe_allow_html=True)
     # st.write("This page is currently under construction...")
     input = st.text_area('Ask anything to the Qima existing meeting minute tables', key='ask_text_area', value=st.session_state.text_area_text)
     st.session_state.text_area_text = input

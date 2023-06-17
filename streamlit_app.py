@@ -8,6 +8,9 @@ from streamlit_utils import *
 if "output" not in st.session_state:
     st.session_state.output = ""
 
+if "text_area_text" not in st.session_state:
+    st.session_state.text_area_text = ""
+
 with st.sidebar:
     selected = option_menu("Qima Meeting", ["Ask", "Add", "Transcribe", "Your meetings"], default_index=0)
     # selected
@@ -15,7 +18,8 @@ with st.sidebar:
 if selected == "Ask":
     st.header("Ask Qima Meetings")
     # st.write("This page is currently under construction...")
-    input = st.text_area('Ask anything to the Qima existing meeting minute tables', key='ask_text_area')
+    input = st.text_area('Ask anything to the Qima existing meeting minute tables', key='ask_text_area', value=st.session_state.text_area_text)
+    st.session_state.text_area_text = input
     st.button('Ask', key='qima_ask_button', on_click=button_callback, args=(input,))
     if st.session_state.output:
         st.write("Output:", st.session_state.output)

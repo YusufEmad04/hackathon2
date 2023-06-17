@@ -9,5 +9,5 @@ def button_callback(text):
             results = model.query(text, chain_type="refine")
             st.success("Done!")
             st.session_state["output"] = results["answer"]
-        except:
-            st.session_state["output"] = "Something went wrong. Please try again."
+        except Exception as e:
+            st.session_state["output"] = f"Something went wrong. Please try again. \n {e}"

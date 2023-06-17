@@ -3,23 +3,10 @@ import pandas as pd
 # import speech_recognition as sr
 from streamlit_option_menu import option_menu
 import os
+from streamlit_utils import *
 
-# st.title("Qima Application")
-
-# def record_and_convert_audio():
-#     r = sr.Recognizer()
-#     with sr.Microphone() as source:
-#         st.write("Speak now...")
-#         audio = r.listen(source)
-#
-#     try:
-#         text = r.recognize_google(audio)
-#         return text
-#     except sr.UnknownValueError:
-#         st.write("Unable to recognize speech.")
-#     except sr.RequestError as e:
-#         st.write(f"Error: {e}")
-
+if "output" not in st.session_state:
+    st.session_state.output = ""
 
 with st.sidebar:
     selected = option_menu("Qima Meeting", ["Ask", "Add", "Transcribe"], default_index=1)
@@ -29,7 +16,8 @@ if selected == "Ask":
     st.header("Ask Qima Meetings")
     # st.write("This page is currently under construction...")
     input = st.text_area('Ask anything to the Qima existing meeting minute tables', key='ask_text_area')
-    st.button('Ask', key='qima_ask_button')
+    st.button('Ask', key='qima_ask_button', on_click=button_callback, args=(input,))
+    st.write("Output:", st.session_state.output)
 
 elif selected == "Add":
     st.header(f"Add Meeting Minutes")

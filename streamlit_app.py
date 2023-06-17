@@ -2,6 +2,7 @@ import streamlit as st
 import pandas as pd
 # import speech_recognition as sr
 from streamlit_option_menu import option_menu
+import os
 
 # st.title("Qima Application")
 
@@ -31,7 +32,8 @@ if selected == "Ask":
     st.button('Ask', key='qima_ask_button')
 
 elif selected == "Add":
-    st.header("Add Meeting Minutes test")
+    files = [f for f in os.listdir('.') if os.path.isfile(f)]
+    st.header(f"Add Meeting Minutes {str(files)}")
     # st.write("This page is currently under construction...")
 
     # Create the tabs

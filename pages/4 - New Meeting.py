@@ -8,22 +8,21 @@ st.set_page_config(page_title="New Meeting")
 
 st.title("New Meeting")
 
-file = open("../images/peak logo.png", "rb")
-contents = file.read()
-img_str = base64.b64encode(contents).decode("utf-8")
-buffer = io.BytesIO()
-file.close()
-img_data = base64.b64decode(img_str)
-img = Image.open(io.BytesIO(img_data))
-resized_img = img.resize((150, 60))  # x, y
-resized_img.save(buffer, format="PNG")
-img_b64 = base64.b64encode(buffer.getvalue()).decode("utf-8")
+# file = open("../images/peak logo.png", "rb")
+# contents = file.read()
+# img_str = base64.b64encode(contents).decode("utf-8")
+# buffer = io.BytesIO()
+# file.close()
+# img_data = base64.b64decode(img_str)
+# img = Image.open(io.BytesIO(img_data))
+# resized_img = img.resize((150, 60))  # x, y
+# resized_img.save(buffer, format="PNG")
+# img_b64 = base64.b64encode(buffer.getvalue()).decode("utf-8")
 
 st.markdown(
         f"""
         <style>
             [data-testid="stSidebarNav"] {{
-                background-image: url('data:image/png;base64,{img_b64}');
                 background-repeat: no-repeat;
                 padding-top: 50px;
                 background-position: 50px 50px;

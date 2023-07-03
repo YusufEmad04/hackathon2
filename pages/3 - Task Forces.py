@@ -8,7 +8,7 @@ st.set_page_config(page_title="Task Forces")
 
 st.title("Your Task Forces")
 
-file = open("..\images\peak logo.png", "rb")
+file = open("../images/peak logo.png", "rb")
 contents = file.read()
 img_str = base64.b64encode(contents).decode("utf-8")
 buffer = io.BytesIO()
